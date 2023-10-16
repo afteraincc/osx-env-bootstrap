@@ -65,17 +65,17 @@ function bootstrap_zsh() {
   # return 0 = true, 1 = false
   local level=$1
 
-  #bootstrap ohmyzsh 3
-  #if [ $? -ne 0 ]; then
-  #  return 1
-  #fi
-
-  log "\033[33m configuring \033[0m" $level
-  chsh -s /bin/zsh
+  bootstrap ohmyzsh 3
   if [ $? -ne 0 ]; then
     return 1
   fi
-  log "\033[32m configure success \033[0m" $level
+
+  #log "\033[33m configuring \033[0m" $level
+  #chsh -s /bin/zsh
+  #if [ $? -ne 0 ]; then
+  #  return 1
+  #fi
+  #log "\033[32m configure success \033[0m" $level
 
   return 0
 }
@@ -122,7 +122,7 @@ function bootstrap_krew() {
       return 1
     fi
   fi
-  kubectl krew install access-matrix ctx ns debug 
+  kubectl krew install access-matrix ctx ns
   if [ $? -ne 0 ]; then
     return 1
   fi
@@ -157,10 +157,10 @@ function bootstrap_nodejs() {
   if [ $? -ne 0 ]; then
     return 1
   fi
-  npm set disturl https://npm.taobao.org/dist
-  if [ $? -ne 0 ]; then
-    return 1
-  fi
+  #npm set disturl https://npm.taobao.org/dist
+  #if [ $? -ne 0 ]; then
+  #  return 1
+  #fi
   log "\033[32m configure success \033[0m" $level
 
   return 0
@@ -209,14 +209,15 @@ function bootstrap_brew() {
   log "\033[32m configure repo success \033[0m" $level
 
   log "\033[33m installing formula \033[0m" $level
-  brew install argocd axel bats-core dos2unix exif exiftool ffmpeg git graphviz helm imagemagick ipcalc krew kubectx kubevela mpv node packer qrencode rbenv sqlite terraform vim wget zsh
+  brew install argocd axel bats-core colima dos2unix exif exiftool ffmpeg flux git graphviz helm hugo imagemagick ipcalc krew kubectx kubevela mpv node packer qrencode rbenv sqlite terraform vim wget youtube-dl
   if [ $? -ne 0 ]; then
     return 1
   fi
   log "\033[32m install formula success \033[0m" $level
 
   log "\033[33m installing cask formula \033[0m" $level
-  brew install --cask --appdir=~/Applications android-studio anki caffeine docker drawio firefox gas-mask github google-chrome hex-fiend iterm2 joplin karabiner-elements keepassxc lens macdown meld processing sequel-pro sogouinput sqlitestudio v2rayu visual-studio-code vlc vmware-fusion wireshark xmind xquartz
+  brew install android-studio caffeine docker drawio firefox gas-mask gimp github chromium hex-fiend iterm2 joplin karabiner-elements keepassxc macdown meld rar sequel-pro sqlitestudio youdaodict visual-studio-code vlc vmware-fusion wireshark xmind xquartz
+  #brew install v2rayu
   if [ $? -ne 0 ]; then
     return 1
   fi
