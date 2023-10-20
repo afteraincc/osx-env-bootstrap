@@ -216,7 +216,7 @@ function bootstrap_brew() {
   log "\033[32m install formula success \033[0m" $level
 
   log "\033[33m installing cask formula \033[0m" $level
-  brew install android-studio caffeine docker drawio firefox gas-mask gimp github chromium hex-fiend iterm2 joplin karabiner-elements keepassxc macdown meld rar sequel-pro sqlitestudio youdaodict visual-studio-code vlc vmware-fusion wireshark xmind xquartz
+  brew install android-file-transfer android-studio caffeine docker drawio firefox gas-mask gimp github chromium hex-fiend iterm2 joplin karabiner-elements keepassxc macdown meld rar sequel-pro sqlitestudio youdaodict visual-studio-code vlc vmware-fusion wireshark xmind xquartz
   #brew install v2rayu
   if [ $? -ne 0 ]; then
     return 1
